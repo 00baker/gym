@@ -1,6 +1,10 @@
 {% extends 'health/base.html' %}
 {% block head_title %}Viewing category {{ category.title }}{% endblock %}
-{% block title %}{{ category.title }}{% endblock %}
+{% block title %}
+	<div style="color: #FFD700">
+		{{ category.title }}
+	</div>
+{% endblock %}
 
 {% block content %}
     {% if posts %}

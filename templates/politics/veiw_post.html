@@ -1,6 +1,10 @@
 {% extends 'politics/base.html' %}
 {% block head_title %}{{ post.title }}{% endblock %}
-{% block title %}{{ post.title }}{% endblock %}
+{% block title %}
+	<div style="color: #FFD700">
+		{{ post.title }}
+	</div>
+{% endblock %}
 
 {% block content %}
     {{ post.body|safe }}

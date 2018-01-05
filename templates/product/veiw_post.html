@@ -1,0 +1,13 @@
+{% extends 'product/base.html' %}
+{% block head_title %}{{ product.title }}{% endblock %}
+{% block title %}
+	<div style="color: #FFD700">
+		{{ product.title }}
+	</div>
+{% endblock %}
+
+{% block content %}
+    {{ product.description|safe }}<br>
+    <img style ="height:100px"  src="{{ product.image.url }}"><br>
+    ₹{{ product.price }}
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'product/base.html' %}
+{% block head_title %}Viewing category {{ category.title }}{% endblock %}
+{% block title %}
+	<div style="color: #FFD700">
+		{{ category.title }}
+	</div>
+{% endblock %}
+
+{% block content %}
+    {% if products %}
+        <ul>
+        {% for product in products %}
+            <li><a href="{{ product.get_absolute_url }}">{{ product.title }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are no product.</p>
+    {% endif %}
+{% endblock %}

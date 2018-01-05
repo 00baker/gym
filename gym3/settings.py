@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'entrepreneurship',
     'health',
     'politics',
+    'products',
 ]
 
 MIDDLEWARE = [

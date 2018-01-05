@@ -15,15 +15,18 @@ Including another URLconf
 """
 from django.conf.urls import url,include
 from django.contrib import admin
-from home import views
+from home.views import index
+from entrepreneurship import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^summernote/', include('django_summernote.urls')),
-    url(r'^$', views.index),
-    url(r'^health/',include('health.urls')),
+    url(r'^$', index, name='home'),
     url(r'^politics/',include('politics.urls')),
+    url(r'^health/',include('health.urls')),
     url(r'^entrepreneurship/',include('entrepreneurship.urls')),
+    url(r'^product/',include('products.urls'))
+
 ]
 from django.conf import settings
 from django.conf.urls.static import static
