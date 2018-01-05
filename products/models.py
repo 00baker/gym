@@ -19,7 +19,7 @@ class Product(models.Model):
     description = models.TextField()
     addded = models.DateTimeField(db_index=True, auto_now_add=True)
     category = models.ForeignKey('products.Category')
-    image = models.ImageField(upload_to='product')
+    image = models.FileField(upload_to='product')
     price = models.DecimalField(max_digits=8, decimal_places=2,default='0.0')
 
     def __str__(self):
