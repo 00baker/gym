@@ -10,7 +10,7 @@ class Category(models.Model):
 
     @permalink
     def get_absolute_url(self):
-        return ('view_blog_category', None, { 'slug': self.slug })
+        return ('view_politics_category', None, { 'slug': self.slug })
 
 class Blog(models.Model):
     title = models.CharField(max_length=100, unique=True)
@@ -24,5 +24,4 @@ class Blog(models.Model):
 
     @permalink
     def get_absolute_url(self):
-        return ('view_blog_post', None, { 'slug': self.slug })
-
+        return ('view_politics_post', None, { 'slug': self.slug })
