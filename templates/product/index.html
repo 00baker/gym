@@ -1,5 +1,5 @@
 {% extends 'product/base.html' %}
-{% block title %}Welcome to Products{% endblock %}
+{% block head_title %}Welcome to Products{% endblock %}
 
 {% block content %}
     <div class="row">
@@ -18,18 +18,21 @@
         <div class="col-md-8">
             <h2>Products</h2>
             {% if products %}
-                <ul>
-                {% for product in products %}
-                    <div class="card card-outline-primary mb-3 text-center" style="background-color: black">
-                        <div class="card-block">
-                            <blockquote class="card-blockquote">
-                                <li style="text-align: left"><a href="{{ product.get_absolute_url }}" style="color: #FFD700">{{ product.title }}</a></li>
-                            </blockquote>
+
+                <div class="row">
+                    {% for product in products %}
+                        <div class="col-md-6">
+                            <div class="thumbnail">
+                                <a href="{{ product.get_absolute_url }}">
+                                    <img src="{{product.image.url}}" alt="Lights" style="width:100%">
+                                    <div class="caption">
+                                        <p style="color: #FFD700">{{ product.title }}</p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-                    </div>   
-                {% endfor %}
-                </ul>
-            {% else %}
+                    {% endfor %}
+                    {% else %}
                 <div class="card card-outline-primary mb-3 text-center" style="background-color: black">
                     <div class="card-block">
                         <blockquote class="card-blockquote">
@@ -37,7 +40,8 @@
                         </blockquote>
                     </div>
                 </div>   
-            {% endif %}
+                {% endif %}
+            </div>
         </div>
     </div>
 {% endblock %}
