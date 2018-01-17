@@ -18,17 +18,30 @@
         <div class="col-md-8">
             <h2>Posts</h2>
             {% if posts %}
-                <ul>
-                {% for post in posts %}
-                    <div class="card card-outline-primary mb-3 text-center" style="background-color: black">
-                        <div class="card-block">
-                            <blockquote class="card-blockquote">
-                                <li style="text-align: left"><a href="{{ post.get_absolute_url }}" style="color: #FFD700">{{ post.title }}</a></li>
-                            </blockquote>
+            <div class="container">
+                <div class="panel-group">
+                    {% for post in posts %}    <!-- for loop -->
+
+                        <div class="panel panel-default" style="border-bottom: 2px solid; border-color: white;padding-bottom: 2px;padding-top: 4px">
+                            <div class="panel-heading"><a id="asdf" href="{{ post.get_absolute_url }}" style="color: #FFD700">{{ post.title }}</a></div>
+                            <script type="text/javascript">
+                                $(document).ready(function(){
+                                    var maxLength = 90;
+                                    $(".show-read-more").each(function(){
+                                        var myStr = $(this).text();
+                                        if($.trim(myStr).length > maxLength){
+                                            var newStr = myStr.substring(0, maxLength);
+                                            $(this).empty().html(newStr);
+                                            $(this).append(' ...');
+                                        }
+                                    });
+                                });
+                            </script>
+                            <div class="panel-body" ><span class="show-read-more">{{ post.body|safe }}</span></div>
                         </div>
-                    </div>   
-                {% endfor %}
-                </ul>
+                    {% endfor %}
+                </div>
+            </div>
             {% else %}
                 <div class="card card-outline-primary mb-3 text-center" style="background-color: black">
                     <div class="card-block">
