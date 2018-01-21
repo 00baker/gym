@@ -80,9 +80,9 @@
         <div class="row">
           <div class="col-lg-8 mx-auto">
           	<img  style="height: 100px" src="{% static "img/239X165px.png"  %}" class="img-responsive">
-           <!-- <h2>About JYOTSHRED</h2>  -->
-            <p style="color: #FFD700"><br>Welcome, metadors I am Jyot.Shred certfied from internatinal sports science associtation. I can teach how to get a greek god body in any age. I can teach you how to reach the top of the food chain in the world of power. I can teach you how u can turn your dreams into reality 
-everything is based on pure evidence base if you are strong enough to apply you surely can be the man/women of your dreams. </p>
+
+            <p style="color: #FFD700"><br>{% for item in items %}{{ item.about|safe }}{% endfor %}
+            </p>
           </div>
         </div>
       </div>
@@ -99,19 +99,21 @@ everything is based on pure evidence base if you are strong enough to apply you 
     				<div class="col-sm-6">
     					<img src="{% static "img/239X165px.png"  %}">
     				</div>
-
-    				<div class="col-sm-6">
-    					<h2 style="color: #FFD700; margin-bottom: 0px; text-align: right;">Jyot  shred</h2>
-    					<p style="color: #FFD700; margin-bottom: 0px;text-align: right;">PERSONAl TRAINER</p>
-    					<p style="color: #FFD700; margin-bottom: 0px;text-align: right;">(ISSA CERTIFIED)</p>
+                    {% for item in  items %}
+                        <div class="col-sm-6">
+    					<h2 style="color: #FFD700; margin-bottom: 0px; text-align: right;">{{ item.name }}</h2>
+    					<p style="color: #FFD700; margin-bottom: 0px;text-align: right;">{{ item.designation }}</p>
+    					<p style="color: #FFD700; margin-bottom: 0px;text-align: right;">({{ item.certification }})</p>
     					<br>
     					<br>
     					<br>
     					<p style="color: #FFD700;text-align: left;margin-bottom: 10px;">Feel free to contact us</p>
-    					<h5 style="color:#FFD700; margin-bottom:5px;text-align: left;">+91 7009499367</h5>
-    					<h5 style="color:#FFD700; margin-bottom:5px;text-align: left;">jyot.s.pt@gmail.com</h5>
-    					<h5 style="color:#FFD700; margin-bottom:5px;text-align: left;">www.jyotshred.com</h5>
+    					<h5 style="color:#FFD700; margin-bottom:5px;text-align: left;">{{ item.contact_phone }}</h5>
+    					<h5 style="color:#FFD700; margin-bottom:5px;text-align: left;">{{ item.email }}</h5>
+    					<h5 style="color:#FFD700; margin-bottom:5px;text-align: left;"><a>{{ item.website }}</a></h5>
     				</div>
+
+                    {% endfor %}
   				</div>
   			</div>
           </div>
